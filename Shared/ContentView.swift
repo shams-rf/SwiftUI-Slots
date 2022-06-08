@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     @State var credits = 1000
+    let iconList = ["apple", "cherry", "star"]
+    @State var icon1 = "apple"
+    @State var icon2 = "apple"
+    @State var icon3 = "apple"
     
     var body: some View {
         
@@ -29,19 +33,19 @@ struct ContentView: View {
             Spacer()
             
             // display 3 icons
-            HStack {
+            HStack() {
                 
                 Spacer()
                 
-                Image("apple")
+                Image(icon1)
                 
                 Spacer()
                 
-                Image("apple")
+                Image(icon2)
                 
                 Spacer()
                 
-                Image("apple")
+                Image(icon3)
                 
                 Spacer()
                 
@@ -51,7 +55,12 @@ struct ContentView: View {
             
             Button(" Spin ") {
                 
-                // randomise icons and alter score accordingly
+                // randomise icons
+                icon1 = iconList[Int.random(in: 0...2)]
+                icon2 = iconList[Int.random(in: 0...2)]
+                icon3 = iconList[Int.random(in: 0...2)]
+                
+                // alter score appropriately
                 
             }
             .padding()
