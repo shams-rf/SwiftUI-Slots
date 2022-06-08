@@ -61,6 +61,18 @@ struct ContentView: View {
                 icon3 = iconList[Int.random(in: 0...2)]
                 
                 // alter score appropriately
+                // if 2 icons are identical then increase score by 10
+                // if 3 icons are identical then increase score by 30
+                // if no icons are identical then decrease score by 20
+                if icon1 == icon2 && icon2 == icon3 {
+                    credits = credits + 30
+                }
+                else if (icon1 == icon2) || (icon1 == icon3) || (icon2 == icon3) {
+                    credits = credits + 10
+                }
+                else {
+                    credits = credits - 20
+                }
                 
             }
             .padding()
